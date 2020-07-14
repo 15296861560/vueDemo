@@ -12,8 +12,14 @@
   },
   "dependencies": {
     "vue": "^2.5.2",
-    "vue-router": "^3.0.1"
+    "vue-router": "^3.0.1",
+    "js-yaml": ">=3.13.1",
+    "serialize-javascript": ">=2.1.1",
+    "mem": ">=4.0.0",
+    "webpack-bundle-analyzer": ">=3.3.2",
+    "webpack-dev-server": ">=3.1.11"
   },
+
   "devDependencies": {
     "autoprefixer": "^7.1.2",
     "babel-core": "^6.22.1",
