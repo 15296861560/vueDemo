@@ -47,14 +47,6 @@ export default {
     }
   }
 
-  // 注册
-Vue.component('runoob', {
-  template: '<h1>自定义组件!</h1>'
-})
-// 创建根实例
-new Vue({
-  el: '#app'
-})
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
