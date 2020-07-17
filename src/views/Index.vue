@@ -22,6 +22,9 @@
     <el-tab-pane label="今日最热" name="fourth">
       今日最热内容
       </el-tab-pane>
+          <el-tab-pane label="组件学习" name="fifth">
+      <study></study>
+      </el-tab-pane>
   </el-tabs>
 
           </el-col>
@@ -38,10 +41,12 @@
 <script>
 import Navigation from "@/components/Navigation.vue";
 import Myfooter from "@/components/Myfooter.vue";
+import Study from "@/views/study.vue";
 export default {
   components: {
     Navigation,
-    Myfooter
+    Myfooter,
+    Study
   },
   data() {
     return {
