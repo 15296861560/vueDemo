@@ -1,0 +1,64 @@
+<template>
+  <div>
+    <!-- 导航栏 -->
+    <navigation></navigation>
+    <div>
+      <div class="main">
+        <el-row type="flex" justify="start" :gutter="10" style="text-align: left;">
+          <el-col :xs="leftSize" :sm="leftSize" :lg="leftSize">
+            <div>
+              <h1>
+                <i class="el-icon-menu">发现</i>
+              </h1>
+            </div>
+              <el-tabs v-model="activeName" @tab-click="handleClick">
+    <el-tab-pane label="最新" name="first">最新</el-tab-pane>
+    <el-tab-pane label="本月最热" name="second">
+      本月最热内容
+      </el-tab-pane>
+    <el-tab-pane label="本周最热" name="third">
+      本周最热内容
+      </el-tab-pane>
+    <el-tab-pane label="今日最热" name="fourth">
+      今日最热内容
+      </el-tab-pane>
+  </el-tabs>
+
+          </el-col>
+          <el-col :xs="rightSize" :sm="rightSize" :lg="rightSize">
+            <h1>广告</h1>
+          </el-col>
+        </el-row>
+      </div>
+    </div>
+    <myfooter></myfooter>
+  </div>
+</template>
+
+<script>
+import Navigation from "@/components/Navigation.vue";
+import Myfooter from "@/components/Myfooter.vue";
+export default {
+  components: {
+    Navigation,
+    Myfooter
+  },
+  data() {
+    return {
+      leftSize: 18,
+      rightSize: 6
+    };
+  }
+};
+</script>
+
+<style>
+.main {
+  padding: 20px;
+  margin: 50px;
+  background-color: white;
+}
+.font-size-l{
+  font-size: large;
+}
+</style>
