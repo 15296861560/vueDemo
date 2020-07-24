@@ -6,8 +6,13 @@ import router from './router'
 import ElementUI from 'element-ui';
 import 'element-ui/lib/theme-chalk/index.css';
 
+import Navigation from "@/components/Navigation.vue";
+import Myfooter from "@/components/Myfooter.vue";
+
 Vue.config.productionTip = false;
 Vue.use(ElementUI);
+Vue.component('Navigation', Navigation)
+Vue.component('Myfooter', Myfooter)
 
 /* eslint-disable no-new */
 new Vue({

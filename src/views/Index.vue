@@ -39,13 +39,9 @@
 </template>
 
 <script>
-import Navigation from "@/components/Navigation.vue";
-import Myfooter from "@/components/Myfooter.vue";
 import Study from "@/views/study.vue";
 export default {
   components: {
-    Navigation,
-    Myfooter,
     Study
   },
   data() {
