@@ -11,7 +11,7 @@
                 <i class="el-icon-menu">发现</i>
               </h1>
             </div>
-              <el-tabs v-model="activeName" @tab-click="handleClick">
+              <el-tabs>
     <el-tab-pane label="最新" name="first">最新</el-tab-pane>
     <el-tab-pane label="本月最热" name="second">
       本月最热内容
@@ -19,8 +19,8 @@
     <el-tab-pane label="本周最热" name="third">
       本周最热内容
       </el-tab-pane>
-    <el-tab-pane label="今日最热" name="fourth">
-      今日最热内容
+    <el-tab-pane label="echart绘图" name="fourth">
+      <echart></echart>
       </el-tab-pane>
           <el-tab-pane label="组件学习" name="fifth">
       <study></study>
@@ -40,9 +40,11 @@
 
 <script>
 import Study from "@/views/study.vue";
+import Echart from "@/views/echart.vue";
 export default {
   components: {
-    Study
+    Study,
+    Echart
   },
   data() {
     return {
