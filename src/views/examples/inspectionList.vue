@@ -327,7 +327,6 @@ export default {
 }
 
 .el-table__body-wrapper::-webkit-scrollbar {
-  /*width: 0;宽度为0隐藏*/
   width: 10px;
   height: 0px;
 }
