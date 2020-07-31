@@ -20,8 +20,8 @@
             </template>
             <el-menu-item-group>
               <span slot="title">例子</span>
-              <el-menu-item index="1-1">自动滚动表格</el-menu-item>
-              <el-menu-item index="1-2">选项2</el-menu-item>
+              <el-menu-item index="1-1" @click="choose('1-1')">自动滚动表格</el-menu-item>
+              <el-menu-item index="1-2" @click="choose('1-2')">选项2</el-menu-item>
             </el-menu-item-group>
             <el-menu-item-group title="分组2">
               <el-menu-item index="1-3">选项3</el-menu-item>
@@ -78,12 +78,13 @@ export default {
   },
   methods: {
     handleOpen(key, keyPath) {
-      this.selectIndex=keyPath;
       console.log(key, keyPath);
-      console.log("selectIndex"+ this.selectIndex);
     },
     handleClose(key, keyPath) {
       console.log(key, keyPath);
+    },
+    choose(index){
+      this.selectIndex=index;
     }
   }
 };
