@@ -7,7 +7,7 @@
           <el-radio-button :label="true">收起</el-radio-button>
         </el-radio-group>
         <el-menu
-          default-active="1-4-1"
+          default-active="1-1"
           class="el-menu-vertical-demo"
           @open="handleOpen"
           @close="handleClose"
@@ -19,8 +19,8 @@
               <span slot="title">导航一</span>
             </template>
             <el-menu-item-group>
-              <span slot="title">分组一</span>
-              <el-menu-item index="1-1">选项1</el-menu-item>
+              <span slot="title">例子</span>
+              <el-menu-item index="1-1">自动滚动表格</el-menu-item>
               <el-menu-item index="1-2">选项2</el-menu-item>
             </el-menu-item-group>
             <el-menu-item-group title="分组2">
@@ -55,34 +55,32 @@
   }"
           placeholder="选择时间"
         ></el-time-select><br><br>
-        <el-progress :text-inside="true" :stroke-width="26" :percentage="70"></el-progress><br>
-<el-progress :text-inside="true" :stroke-width="24" :percentage="100" status="success"></el-progress><br>
-  <el-alert
-    title="警告提示的文案"
-    type="warning">
-  </el-alert><br>
-  <el-alert
-    title="错误提示的文案"
-    type="error">
-  </el-alert>
+        <inspectionList v-if="selectIndex=='1-1'"></inspectionList>
       </el-col>
     </el-row>
   </div>
 </template>
 
 <script>
+import InspectionList from "@/views/examples/inspectionList.vue";
 export default {
+    components: {
+    InspectionList,
+  },
   data() {
     return {
       isCollapse: true,
       leftSize: 6,
       rightSize: 18,
-      value: ""
+      value: "",
+      selectIndex:'1-1'
     };
   },
   methods: {
     handleOpen(key, keyPath) {
+      this.selectIndex=keyPath;
       console.log(key, keyPath);
+      console.log("selectIndex"+ this.selectIndex);
     },
     handleClose(key, keyPath) {
       console.log(key, keyPath);
