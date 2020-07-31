@@ -21,7 +21,7 @@
             <el-menu-item-group>
               <span slot="title">例子</span>
               <el-menu-item index="1-1" @click="choose('1-1')">自动滚动表格</el-menu-item>
-              <el-menu-item index="1-2" @click="choose('1-2')">选项2</el-menu-item>
+              <el-menu-item index="1-2" @click="choose('1-2')">画角</el-menu-item>
             </el-menu-item-group>
             <el-menu-item-group title="分组2">
               <el-menu-item index="1-3">选项3</el-menu-item>
@@ -56,6 +56,7 @@
           placeholder="选择时间"
         ></el-time-select><br><br>
         <inspectionList v-if="selectIndex=='1-1'"></inspectionList>
+        <cssDrawAngle v-else-if="selectIndex=='1-2'"></cssDrawAngle>
       </el-col>
     </el-row>
   </div>
@@ -63,9 +64,11 @@
 
 <script>
 import InspectionList from "@/views/examples/inspectionList.vue";
+import CssDrawAngle from "@/views/examples/cssDrawAngle.vue";
 export default {
     components: {
     InspectionList,
+    CssDrawAngle,
   },
   data() {
     return {
