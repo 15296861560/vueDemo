@@ -22,7 +22,7 @@
     <el-tab-pane label="echart绘图" name="fourth">
       <echart></echart>
       </el-tab-pane>
-          <el-tab-pane label="组件学习" name="fifth">
+          <el-tab-pane label="学习" name="fifth">
       <study></study>
       </el-tab-pane>
   </el-tabs>
