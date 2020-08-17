@@ -25,6 +25,9 @@
           <el-tab-pane label="学习" name="fifth">
       <study></study>
       </el-tab-pane>
+      <el-tab-pane label="接口" name="sixth">
+      <interface></interface>
+      </el-tab-pane>
   </el-tabs>
 
           </el-col>
@@ -41,10 +44,12 @@
 <script>
 import Study from "@/views/study.vue";
 import Echart from "@/views/echart.vue";
+import Interface from "@/views/interface.vue";
 export default {
   components: {
     Study,
-    Echart
+    Echart,
+    Interface
   },
   data() {
     return {
