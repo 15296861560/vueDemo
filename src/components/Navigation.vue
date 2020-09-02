@@ -12,13 +12,6 @@
       <el-menu-item>
         <img src="../assets/logo.png" style="height: 100%;" />
       </el-menu-item>
-      <el-menu-item>
-        <el-input placeholder="搜索内容" v-model="search" clearable></el-input>
-      </el-menu-item>
-      <el-menu-item>
-        <el-button type="primary" icon="el-icon-search">搜索</el-button>
-      </el-menu-item>
-
       <el-submenu index="1">
         <template slot="title">LGY社区</template>
         <el-menu-item index="1-1">RRS</el-menu-item>
@@ -37,6 +30,10 @@
       <el-menu-item index="1">
         <el-link :underline="false">个人中心</el-link>
       </el-menu-item>
+
+      <el-menu-item>
+        <el-input placeholder="请输入内容" prefix-icon="el-icon-search" v-model="input2"></el-input>
+      </el-menu-item>
     </el-menu>
   </div>
 </template>
@@ -48,14 +45,14 @@ export default {
     return {
       activeIndex: "1",
       activeIndex2: "1",
-      search: ""
+      search: "",
     };
   },
   methods: {
     handleSelect(key, keyPath) {
       console.log(key, keyPath);
-    }
-  }
+    },
+  },
 };
 </script>
 
