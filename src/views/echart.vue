@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div id="main" style="width: 900px;height:400px;"></div>
+    <div id="echart-ex" style="width: 100%;height:50vh;"></div>
   </div>
 </template>
 
@@ -116,7 +116,7 @@ export default {
   methods: {
     paint() {
       // 基于准备好的dom，初始化echarts实例
-      this.myChart = echarts.init(document.getElementById("main"));
+      this.myChart = echarts.init(document.getElementById("echart-ex"));
       // 绘制图表
       this.myChart.setOption(this.option);
     },
