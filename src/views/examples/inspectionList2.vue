@@ -13,9 +13,9 @@
         <th>客户</th>
       </tr>
 
-      <transition-group name="flip-list" tag="ul" style="padding: 0px;">
-        <li v-for="item in tableData1" v-bind:key="item" >
-          <tr >
+      <transition-group name="flip-list" tag="ul" style="padding: 0px;height: 100px; overflow: hidden;">
+        <li v-for="item in tableData1" v-bind:key="item">
+          <tr>
             <td>
               <span>{{item.inspectionNo}}</span>
             </td>
@@ -31,13 +31,20 @@
             <td>
               <span>{{item.qty}}</span>
             </td>
-            <td><span>{{item.workshop}}</span></td>
-            <td><span>{{item.productionLine}}</span></td>
-            <td><span>{{item.team}}</span></td>
-            <td><span>{{item.customer}}</span></td>
+            <td>
+              <span>{{item.workshop}}</span>
+            </td>
+            <td>
+              <span>{{item.productionLine}}</span>
+            </td>
+            <td>
+              <span>{{item.team}}</span>
+            </td>
+            <td>
+              <span>{{item.customer}}</span>
+            </td>
           </tr>
         </li>
-        
       </transition-group>
     </div>
   </div>
@@ -82,6 +89,17 @@ export default {
         },
         {
           inspectionNo: "444444",
+          workNo: "abe",
+          productCode: "A001",
+          productName: "ASN",
+          qty: 10,
+          workshop: "GTN",
+          productionLine: "x1",
+          team: "t1",
+          customer: "LGY",
+        },
+        {
+          inspectionNo: "55555",
           workNo: "abe",
           productCode: "A001",
           productName: "ASN",
@@ -240,7 +258,6 @@ td {
   white-space: nowrap;
   max-width: 5rem;
   height: 20px;
-
 }
 
 .td:hover {

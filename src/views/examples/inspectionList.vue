@@ -1,7 +1,6 @@
 <template>
   <div>
-
-
+    <label>定时器实现自动滚动</label>
     <div>
       <el-table
         ref="checkList"
@@ -22,16 +21,30 @@
         <el-table-column prop="productionLine" label="产线"></el-table-column>
         <el-table-column prop="team" label="班组"></el-table-column>
         <el-table-column prop="customer" label="客户"></el-table-column>
-
       </el-table>
-        <el-table
-          :data="tableData2"
-          height="228"
-          class="my-table"
-          :show-header="status"
-          @mouseenter.native="stopMove2"
-          @mouseleave.native="keepMove2"
-        >
+      <el-table
+        :data="tableData2"
+        height="228"
+        class="my-table"
+        :show-header="status"
+        @mouseenter.native="stopMove2"
+        @mouseleave.native="keepMove2"
+      >
+        <el-table-column prop="inspectionNo"></el-table-column>
+        <el-table-column prop="workNo"></el-table-column>
+        <el-table-column prop="productCode"></el-table-column>
+        <el-table-column prop="productName"></el-table-column>
+        <el-table-column prop="qty"></el-table-column>
+        <el-table-column prop="workshop"></el-table-column>
+        <el-table-column prop="productionLine"></el-table-column>
+        <el-table-column prop="team"></el-table-column>
+        <el-table-column prop="customer"></el-table-column>
+      </el-table>
+    </div>
+    <div style="margin-top:50px;">插件实现自动滚动</div>
+    <div>
+      <vueSeamlessScroll :data="tableData3" class="auto-scorll-table" :class-option="classOption">
+        <!-- <el-table :data="tableData3" class="custom-table-2 hidden-thead">
           <el-table-column prop="inspectionNo"></el-table-column>
           <el-table-column prop="workNo"></el-table-column>
           <el-table-column prop="productCode"></el-table-column>
@@ -41,14 +54,31 @@
           <el-table-column prop="productionLine"></el-table-column>
           <el-table-column prop="team"></el-table-column>
           <el-table-column prop="customer"></el-table-column>
-
-        </el-table>
+        </el-table>-->
+        <ul>
+          <li v-for="(item,index) in tableData3">
+            <div style="color:red;">{{index+1}}</div>
+            <span>{{item.inspectionNo}}</span>
+            <span>{{item.workNo}}</span>
+            <span>{{item.productCode}}</span>
+            <span>{{item.productName}}</span>
+            <span>{{item.qty}}</span>
+            <span>{{item.workshop}}</span>
+            <span>{{item.productionLine}}</span>
+            <span>{{item.team}}</span>
+            <span>{{item.customer}}</span>
+          </li>
+        </ul>
+      </vueSeamlessScroll>
     </div>
   </div>
 </template>
 <script>
+import vueSeamlessScroll from "vue-seamless-scroll";
 export default {
-
+  components: {
+    vueSeamlessScroll,
+  },
   data() {
     return {
       tableData1: [
@@ -62,7 +92,6 @@ export default {
           productionLine: "x1",
           team: "t1",
           customer: "LGY",
-
         },
         {
           inspectionNo: "222222222222",
@@ -74,7 +103,6 @@ export default {
           productionLine: "x1",
           team: "t1",
           customer: "LGY",
-
         },
         {
           inspectionNo: "3333",
@@ -86,7 +114,6 @@ export default {
           productionLine: "x1",
           team: "t1",
           customer: "LGY",
-
         },
         {
           inspectionNo: "444444",
@@ -98,7 +125,6 @@ export default {
           productionLine: "x1",
           team: "t1",
           customer: "LGY",
-
         },
       ],
       tableData2: [
@@ -112,7 +138,6 @@ export default {
           productionLine: "x1",
           team: "t1",
           customer: "LGY",
-
         },
         {
           inspectionNo: "2",
@@ -124,7 +149,6 @@ export default {
           productionLine: "x1",
           team: "t1",
           customer: "LGY",
-
         },
         {
           inspectionNo: "2016",
@@ -136,7 +160,6 @@ export default {
           productionLine: "x1",
           team: "t1",
           customer: "LGY",
-
         },
         {
           inspectionNo: "2-05-02-001",
@@ -148,7 +171,6 @@ export default {
           productionLine: "x1",
           team: "t1",
           customer: "LGY",
-
         },
         {
           inspectionNo: "20101",
@@ -160,7 +182,6 @@ export default {
           productionLine: "x1",
           team: "t1",
           customer: "LGY",
-
         },
         {
           inspectionNo: "001",
@@ -172,7 +193,6 @@ export default {
           productionLine: "x1",
           team: "t1",
           customer: "LGY",
-
         },
         {
           inspectionNo: "02-001",
@@ -184,9 +204,88 @@ export default {
           productionLine: "x1",
           team: "t1",
           customer: "LGY",
-
         },
       ],
+      tableData3: [
+        {
+          inspectionNo: "1",
+          workNo: "labe",
+          productCode: "A001",
+          productName: "ASN",
+          qty: 10,
+          workshop: "GTN",
+          productionLine: "x1",
+          team: "t1",
+          customer: "LGY",
+        },
+        {
+          inspectionNo: "2",
+          workNo: "labe",
+          productCode: "A001",
+          productName: "ASN",
+          qty: 10,
+          workshop: "GTN",
+          productionLine: "x1",
+          team: "t1",
+          customer: "LGY",
+        },
+        {
+          inspectionNo: "2016",
+          workNo: "labe",
+          productCode: "A001",
+          productName: "ASN",
+          qty: 10,
+          workshop: "GTN",
+          productionLine: "x1",
+          team: "t1",
+          customer: "LGY",
+        },
+        {
+          inspectionNo: "2-05-02-001",
+          workNo: "labe",
+          productCode: "A001",
+          productName: "ASN",
+          qty: 10,
+          workshop: "GTN",
+          productionLine: "x1",
+          team: "t1",
+          customer: "LGY",
+        },
+        {
+          inspectionNo: "20101",
+          workNo: "labe",
+          productCode: "A001",
+          productName: "ASN",
+          qty: 10,
+          workshop: "GTN",
+          productionLine: "x1",
+          team: "t1",
+          customer: "LGY",
+        },
+        {
+          inspectionNo: "001",
+          workNo: "labe",
+          productCode: "A001",
+          productName: "ASN",
+          qty: 10,
+          workshop: "GTN",
+          productionLine: "x1",
+          team: "t1",
+          customer: "LGY",
+        },
+        {
+          inspectionNo: "02-001",
+          workNo: "labe",
+          productCode: "A001",
+          productName: "ASN",
+          qty: 10,
+          workshop: "GTN",
+          productionLine: "x1",
+          team: "t1",
+          customer: "LGY",
+        },
+      ],
+
       status: false,
       tableDataA: [],
       tableDataB: [],
@@ -197,12 +296,26 @@ export default {
       flat2: true,
     };
   },
+  computed: {
+    classOption() {
+      return {
+        step: 1, // 数值越大速度滚动越快
+        limitMoveNum: 2, // 开始无缝滚动的数据量 this.dataList.length
+        hoverStop: true, // 是否开启鼠标悬停stop
+        direction: 1, // 0向下 1向上 2向左 3向右
+        openWatch: true, // 开启数据实时监控刷新dom
+        singleHeight: 0, // 单步运动停止的高度(默认值0是无缝不停止的滚动) direction => 0/1
+        singleWidth: 0, // 单步运动停止的宽度(默认值0是无缝不停止的滚动) direction => 2/3
+        waitTime: 1000, // 单步运动停止的时间(默认值1000ms)
+      };
+    },
+  },
+
   methods: {
     //调整表1样式
     tableRowClassName({ row, rowIndex }) {
       return "warning-row";
     },
-
 
     tableMove1() {
       var x = this.tableData2[0];
@@ -213,7 +326,6 @@ export default {
       if (t[0].scrollTop > maxHeight) {
         t[0].scrollTop = 0;
       }
-
     },
     tableUpdate1() {
       let t = document.getElementsByClassName("el-table__body-wrapper");
@@ -287,15 +399,14 @@ export default {
       }, 5900);
     }
   },
-  destroyed(){
+  destroyed() {
     clearInterval(this.timer1);
     clearInterval(this.timer2);
-  }
+  },
 };
 </script>
 
 <style lang="less">
-
 .slide-fade-enter-active {
   transition: all 0.3s ease;
 }
@@ -347,5 +458,29 @@ export default {
   position: fixed;
   top: 30px;
   right: 5px;
+}
+
+.auto-scorll-table {
+  // height: calc(100% - 34px);
+  overflow: hidden;
+  height: 100px;
+  border: solid;
+}
+.hidden-tbody.el-table {
+  height: 34px;
+  box-sizing: border-box;
+  tbody {
+    //隐藏上面表格的tbody
+    display: none;
+    overflow: hidden;
+  }
+}
+.hidden-thead.el-table {
+  border-top: none; //防止边框重叠
+  thead {
+    //隐藏下面表格的thead
+    display: none;
+    overflow: hidden;
+  }
 }
 </style>
