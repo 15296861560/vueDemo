@@ -81,7 +81,7 @@ export default {
       leftSize: 6,
       rightSize: 18,
       value: "",
-      selectIndex:'1-1'
+      selectIndex:'1'
     };
   },
   methods: {

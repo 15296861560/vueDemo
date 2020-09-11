@@ -44,7 +44,7 @@
     <div style="margin-top:50px;">插件实现自动滚动</div>
     <div>
       <vueSeamlessScroll :data="tableData3" class="auto-scorll-table" :class-option="classOption">
-        <!-- <el-table :data="tableData3" class="custom-table-2 hidden-thead">
+        <el-table :data="tableData3" class="custom-table-2 hidden-thead">
           <el-table-column prop="inspectionNo"></el-table-column>
           <el-table-column prop="workNo"></el-table-column>
           <el-table-column prop="productCode"></el-table-column>
@@ -54,8 +54,8 @@
           <el-table-column prop="productionLine"></el-table-column>
           <el-table-column prop="team"></el-table-column>
           <el-table-column prop="customer"></el-table-column>
-        </el-table>-->
-        <ul>
+        </el-table>
+        <!-- <ul>
           <li v-for="(item,index) in tableData3">
             <div style="color:red;">{{index+1}}</div>
             <span>{{item.inspectionNo}}</span>
@@ -68,7 +68,7 @@
             <span>{{item.team}}</span>
             <span>{{item.customer}}</span>
           </li>
-        </ul>
+        </ul> -->
       </vueSeamlessScroll>
     </div>
   </div>
