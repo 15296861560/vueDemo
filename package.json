@@ -19,6 +19,7 @@
     "serialize-javascript": ">=2.1.1",
     "vue": "^2.5.2",
     "vue-router": "^3.0.1",
+    "vue-seamless-scroll": "^1.1.21",
     "webpack-bundle-analyzer": ">=3.3.2"
   },
   "devDependencies": {
