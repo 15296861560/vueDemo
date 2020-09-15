@@ -13,8 +13,12 @@
         <th>客户</th>
       </tr>
 
-      <transition-group name="flip-list" tag="ul" style="padding: 0px;height: 100px; overflow: hidden;">
-        <li v-for="item in tableData1" v-bind:key="item">
+      <transition-group
+        name="flip-list"
+        tag="ul"
+        style="padding: 0px;height: 100px; overflow: hidden;"
+      >
+        <li v-for="item in tableData1" :key="item.inspectionNo">
           <tr>
             <td>
               <span>{{item.inspectionNo}}</span>
@@ -46,6 +50,75 @@
           </tr>
         </li>
       </transition-group>
+    </div>
+
+    <div class="ani-area">
+      <div class="ani">
+        <li v-for="item in tableData2" :key="item.inspectionNo">
+          <tr>
+            <td>
+              <span>{{item.inspectionNo}}</span>
+            </td>
+            <td>
+              <span>{{item.workNo}}</span>
+            </td>
+            <td>
+              <span>{{item.productCode}}</span>
+            </td>
+            <td>
+              <span>{{item.productName}}</span>
+            </td>
+            <td>
+              <span>{{item.qty}}</span>
+            </td>
+            <td>
+              <span>{{item.workshop}}</span>
+            </td>
+            <td>
+              <span>{{item.productionLine}}</span>
+            </td>
+            <td>
+              <span>{{item.team}}</span>
+            </td>
+            <td>
+              <span>{{item.customer}}</span>
+            </td>
+          </tr>
+        </li>
+      </div>
+      <div class="ani2">
+        <li v-for="item in tableData2" :key="item.inspectionNo">
+          <tr>
+            <td>
+              <span>{{item.inspectionNo}}</span>
+            </td>
+            <td>
+              <span>{{item.workNo}}</span>
+            </td>
+            <td>
+              <span>{{item.productCode}}</span>
+            </td>
+            <td>
+              <span>{{item.productName}}</span>
+            </td>
+            <td>
+              <span>{{item.qty}}</span>
+            </td>
+            <td>
+              <span>{{item.workshop}}</span>
+            </td>
+            <td>
+              <span>{{item.productionLine}}</span>
+            </td>
+            <td>
+              <span>{{item.team}}</span>
+            </td>
+            <td>
+              <span>{{item.customer}}</span>
+            </td>
+          </tr>
+        </li>
+      </div>
     </div>
   </div>
 </template>
@@ -210,11 +283,7 @@ export default {
       this.tableData1.shift();
       this.tableData1.push(x);
     },
-    tableUpdate2() {
-      let x = this.tableData2[0];
-      this.tableData2.shift();
-      this.tableData2.push(x);
-    },
+
 
     //表一停止移动
     stopMove1() {
@@ -224,21 +293,13 @@ export default {
     keepMove1() {
       this.flat1 = true;
     },
-    //表二停止移动
-    stopMove2() {
-      this.flat2 = false;
-    },
-    //表二继续移动
-    keepMove2() {
-      this.flat2 = true;
-    },
+
   },
 
   mounted() {
     this.timer1 = setInterval(() => {
       //滚动表格
       if (this.flat1) this.tableUpdate1();
-      if (this.flat2) this.tableUpdate2();
     }, 1000);
   },
   destroyed() {
@@ -248,7 +309,7 @@ export default {
 };
 </script>
 
-<style >
+<style lang="less">
 th,
 td {
   /* padding: 1rem; */
@@ -271,5 +332,71 @@ li {
 
 .flip-list-move {
   transition: transform 1s;
+}
+
+.ani-area {
+  /* width: 500px; */
+  height: 140px;
+  margin-top: 10px;
+  position: relative;
+  border: solid;
+  border-color: aqua;
+  overflow: hidden;
+}
+
+
+
+.ani {
+  background: red;
+  position: relative;
+  animation-name: myfirst;
+  animation-duration: 5s;
+  animation-timing-function: linear;
+  animation-delay: 2s;
+  animation-iteration-count: infinite;
+  animation-direction: normal;
+  animation-play-state: running;
+  position: absolute;
+}
+
+@keyframes myfirst {
+  0% {
+    background: red;
+    left: 0px;
+    top: 0%;
+  }
+
+  100% {
+    background: red;
+    left: 0px;
+    top: 100%;
+  }
+}
+
+.ani2 {
+  background: red;
+  position: relative;
+  animation-name: myfirst2;
+  animation-duration: 5s;
+  animation-timing-function: linear;
+  animation-delay: 2s;
+  animation-iteration-count: infinite;
+  animation-direction: normal;
+  animation-play-state: running;
+  position: absolute;
+}
+
+@keyframes myfirst2 {
+  0% {
+    background: red;
+    left: 0px;
+    top: -100%;
+  }
+
+  100% {
+    background: red;
+    left: 0px;
+    top: 0%;
+  }
 }
 </style>
