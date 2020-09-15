@@ -24,10 +24,10 @@
           <el-menu-item index="1-4-3">选项3</el-menu-item>
         </el-submenu>
       </el-submenu>
-      <el-menu-item index="2">
+      <!-- <el-menu-item index="2">
         <el-link :underline="false" href="/a">注册登录</el-link>
-      </el-menu-item>
-      <el-menu-item index="1">
+      </el-menu-item> -->
+      <el-menu-item index="person">
         <el-link :underline="false">个人中心</el-link>
       </el-menu-item>
 
