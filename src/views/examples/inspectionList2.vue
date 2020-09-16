@@ -1,18 +1,6 @@
 <template>
   <div>
     <div style="border: solid;border-color: aqua;">
-      <tr>
-        <th>检验单号</th>
-        <th>工单号</th>
-        <th>产品编码</th>
-        <th>产品名称</th>
-        <th>数量</th>
-        <th>车间</th>
-        <th>产线</th>
-        <th>班组</th>
-        <th>客户</th>
-      </tr>
-
       <transition-group
         name="flip-list"
         tag="ul"

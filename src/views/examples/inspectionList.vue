@@ -3,47 +3,65 @@
     <label>定时器实现自动滚动</label>
     <div>
       <el-table
-        ref="checkList"
         :row-class-name="tableRowClassName"
         :data="tableData1"
+        :show-header="status"
         height="140"
         class="my-table"
-        style=" background-color:rgba(122,15 ,15, 0.5);"
         @mouseenter.native="stopMove1"
         @mouseleave.native="keepMove1"
       >
-        <el-table-column prop="inspectionNo" label="检验单号"></el-table-column>
-        <el-table-column prop="workNo" label="工单号"></el-table-column>
-        <el-table-column prop="productCode" label="产品编码"></el-table-column>
-        <el-table-column prop="productName" label="产品名称"></el-table-column>
-        <el-table-column prop="qty" label="数量"></el-table-column>
-        <el-table-column prop="workshop" label="车间"></el-table-column>
-        <el-table-column prop="productionLine" label="产线"></el-table-column>
-        <el-table-column prop="team" label="班组"></el-table-column>
-        <el-table-column prop="customer" label="客户"></el-table-column>
-      </el-table>
-      <el-table
-        :data="tableData2"
-        height="228"
-        class="my-table"
-        :show-header="status"
-        @mouseenter.native="stopMove2"
-        @mouseleave.native="keepMove2"
-      >
-        <el-table-column prop="inspectionNo"></el-table-column>
-        <el-table-column prop="workNo"></el-table-column>
-        <el-table-column prop="productCode"></el-table-column>
-        <el-table-column prop="productName"></el-table-column>
-        <el-table-column prop="qty"></el-table-column>
-        <el-table-column prop="workshop"></el-table-column>
-        <el-table-column prop="productionLine"></el-table-column>
-        <el-table-column prop="team"></el-table-column>
-        <el-table-column prop="customer"></el-table-column>
+        <el-table-column prop="inspectionNo" ></el-table-column>
+        <el-table-column prop="workNo" ></el-table-column>
+        <el-table-column prop="productCode" ></el-table-column>
+        <el-table-column prop="productName" ></el-table-column>
+        <el-table-column prop="qty" ></el-table-column>
+        <el-table-column prop="workshop" label></el-table-column>
+        <el-table-column prop="productionLine" ></el-table-column>
+        <el-table-column prop="team" ></el-table-column>
+        <el-table-column prop="customer" ></el-table-column>
       </el-table>
     </div>
     <div style="margin-top:50px;">插件实现自动滚动</div>
     <div>
-      <vueSeamlessScroll :data="tableData3" class="auto-scorll-table" :class-option="classOption">
+      <vueSeamlessScroll :data="tableData2" class="auto-scorll-table" :class-option="classOption">
+        <el-table :data="tableData2" class="custom-table-2 hidden-thead">
+          <el-table-column prop="inspectionNo"></el-table-column>
+          <el-table-column prop="workNo"></el-table-column>
+          <el-table-column prop="productCode"></el-table-column>
+          <el-table-column prop="productName"></el-table-column>
+          <el-table-column prop="qty"></el-table-column>
+          <el-table-column prop="workshop"></el-table-column>
+          <el-table-column prop="productionLine"></el-table-column>
+          <el-table-column prop="team"></el-table-column>
+          <el-table-column prop="customer"></el-table-column>
+        </el-table>
+      </vueSeamlessScroll>
+    </div>
+
+    <div style="margin-top:50px;">html标签实现自动滚动</div>
+    <div>
+      <!-- 重要属性：
+1.滚动方向direction（包括4个值：up、 down、 left和 right）
+2.滚动方式behavior（scroll:循环滚动，默认效果； slide:只滚动一次就停止； alternate:来回交替进行滚动）
+3.滚动速度scrollamount（滚动速度是设置每次滚动时移动的长度，以像素为单位）
+4.滚动延迟scrolldelay（设置滚动的时间间隔，单位是毫秒）
+5.滚动循环loop（默认值是-1，滚动会不断的循环下去）
+6.滚动范围width、height
+7.滚动背景颜色bgcolor
+8.空白空间hspace、vspace-->
+      <marquee
+        direction="up"
+        behavior="scroll"
+        scrollamount="5"
+        scrolldelay="0"
+        loop="-1"
+        width="1000"
+        height="100"
+        bgcolor="white"
+        hspace="10"
+        vspace="10"
+      >
         <el-table :data="tableData3" class="custom-table-2 hidden-thead">
           <el-table-column prop="inspectionNo"></el-table-column>
           <el-table-column prop="workNo"></el-table-column>
@@ -55,21 +73,7 @@
           <el-table-column prop="team"></el-table-column>
           <el-table-column prop="customer"></el-table-column>
         </el-table>
-        <!-- <ul>
-          <li v-for="(item,index) in tableData3">
-            <div style="color:red;">{{index+1}}</div>
-            <span>{{item.inspectionNo}}</span>
-            <span>{{item.workNo}}</span>
-            <span>{{item.productCode}}</span>
-            <span>{{item.productName}}</span>
-            <span>{{item.qty}}</span>
-            <span>{{item.workshop}}</span>
-            <span>{{item.productionLine}}</span>
-            <span>{{item.team}}</span>
-            <span>{{item.customer}}</span>
-          </li>
-        </ul> -->
-      </vueSeamlessScroll>
+      </marquee>
     </div>
   </div>
 </template>
@@ -317,47 +321,24 @@ export default {
       return "warning-row";
     },
 
+    // 滚动
     tableMove1() {
       var x = this.tableData2[0];
       let t = document.getElementsByClassName("el-table__body-wrapper");
-      let maxHeight = t[0].scrollHeight - t[0].offsetHeight;
+      let maxHeight = t[0].scrollHeight - t[0].offsetHeight;//最大滚动高度
       t[0].scrollTop++;
 
       if (t[0].scrollTop > maxHeight) {
         t[0].scrollTop = 0;
       }
     },
+    //更新数据
     tableUpdate1() {
       let t = document.getElementsByClassName("el-table__body-wrapper");
       var x = this.tableData1[0];
       this.tableData1.shift();
       this.tableData1.push(x);
-      t[0].scrollTop -= 59;
-    },
-    tableUpdate2() {
-      let t = document.getElementsByClassName("el-table__body-wrapper");
-      var y = this.tableData2[0];
-      this.tableData2.shift();
-      this.tableData2.push(y);
-      t[1].scrollTop -= 59;
-    },
-    tableMove2() {
-      // var y = this.tableData2[0];
-      // this.tableData2.shift();
-      // this.tableData2.push(y);
-      let t = document.getElementsByClassName("el-table__body-wrapper");
-      let maxHeight = t[1].scrollHeight - t[1].offsetHeight;
-      t[1].scrollTop++;
-
-      if (t[1].scrollTop > maxHeight) {
-        t[1].scrollTop = 0;
-      }
-
-      // this.tableDataB = this.tableData2.slice(0, this.b);
-      // this.tableData2.splice(0, this.b);
-      // this.tableDataB.forEach((element) => {
-      //   this.tableData2.push(element);
-      // });
+      t[0].scrollTop -= 59;//矫正因数据变动而发生的视图变化
     },
 
     //表一停止移动
@@ -368,14 +349,6 @@ export default {
     keepMove1() {
       this.flat1 = true;
     },
-    //表二停止移动
-    stopMove2() {
-      this.flat2 = false;
-    },
-    //表二继续移动
-    keepMove2() {
-      this.flat2 = true;
-    },
   },
 
   mounted() {
@@ -385,7 +358,6 @@ export default {
       this.timer1 = setInterval(() => {
         //滚动表格
         if (this.flat1) this.tableMove1();
-        if (this.flat2) this.tableMove2();
       }, 100);
     }
 
@@ -395,7 +367,6 @@ export default {
       this.timer2 = setInterval(() => {
         //删除添加数据
         if (this.flat1) this.tableUpdate1();
-        if (this.flat2) this.tableUpdate2();
       }, 5900);
     }
   },
@@ -407,23 +378,8 @@ export default {
 </script>
 
 <style lang="less">
-.slide-fade-enter-active {
-  transition: all 0.3s ease;
-}
-.slide-fade-leave-active {
-  transition: all 0.8s cubic-bezier(1, 0.5, 0.8, 1);
-}
-.slide-fade-enter, .slide-fade-leave-to
-/* .slide-fade-leave-active 用于 2.1.8 以下版本 */ {
-  transform: translateX(10px);
-  opacity: 0;
-}
-
 .el-table .warning-row {
   background: rgba(122, 15, 15, 0.5);
-  /* position:fixed;
-	top:30px;
-	right:5px; */
 }
 
 .el-table tr {
@@ -449,9 +405,6 @@ export default {
   border-color: #00a5bb;
   border-style: solid;
   border-width: 1px;
-  bottom: 10px;
-  top: 10px;
-  /* box-shadow: 0px 0px 10px #21dce3 inset; */
 }
 
 .pos_fixed {
