@@ -11,15 +11,15 @@
         @mouseenter.native="stopMove1"
         @mouseleave.native="keepMove1"
       >
-        <el-table-column prop="inspectionNo" ></el-table-column>
-        <el-table-column prop="workNo" ></el-table-column>
-        <el-table-column prop="productCode" ></el-table-column>
-        <el-table-column prop="productName" ></el-table-column>
-        <el-table-column prop="qty" ></el-table-column>
+        <el-table-column prop="inspectionNo"></el-table-column>
+        <el-table-column prop="workNo"></el-table-column>
+        <el-table-column prop="productCode"></el-table-column>
+        <el-table-column prop="productName"></el-table-column>
+        <el-table-column prop="qty"></el-table-column>
         <el-table-column prop="workshop" label></el-table-column>
-        <el-table-column prop="productionLine" ></el-table-column>
-        <el-table-column prop="team" ></el-table-column>
-        <el-table-column prop="customer" ></el-table-column>
+        <el-table-column prop="productionLine"></el-table-column>
+        <el-table-column prop="team"></el-table-column>
+        <el-table-column prop="customer"></el-table-column>
       </el-table>
     </div>
     <div style="margin-top:50px;">插件实现自动滚动</div>
@@ -56,11 +56,9 @@
         scrollamount="5"
         scrolldelay="0"
         loop="-1"
-        width="1000"
         height="100"
         bgcolor="white"
-        hspace="10"
-        vspace="10"
+        class="show-border"
       >
         <el-table :data="tableData3" class="custom-table-2 hidden-thead">
           <el-table-column prop="inspectionNo"></el-table-column>
@@ -87,7 +85,7 @@ export default {
     return {
       tableData1: [
         {
-          inspectionNo: "111111111111",
+          inspectionNo: "1111111111",
           workNo: "lab",
           productCode: "A001",
           productName: "ASN",
@@ -98,7 +96,7 @@ export default {
           customer: "LGY",
         },
         {
-          inspectionNo: "222222222222",
+          inspectionNo: "2222222222",
           workNo: "lae",
           productCode: "A001",
           productName: "ASN",
@@ -325,7 +323,7 @@ export default {
     tableMove1() {
       var x = this.tableData2[0];
       let t = document.getElementsByClassName("el-table__body-wrapper");
-      let maxHeight = t[0].scrollHeight - t[0].offsetHeight;//最大滚动高度
+      let maxHeight = t[0].scrollHeight - t[0].offsetHeight; //最大滚动高度
       t[0].scrollTop++;
 
       if (t[0].scrollTop > maxHeight) {
@@ -338,7 +336,7 @@ export default {
       var x = this.tableData1[0];
       this.tableData1.shift();
       this.tableData1.push(x);
-      t[0].scrollTop -= 59;//矫正因数据变动而发生的视图变化
+      t[0].scrollTop -= 59; //矫正因数据变动而发生的视图变化
     },
 
     //表一停止移动
@@ -380,6 +378,7 @@ export default {
 <style lang="less">
 .el-table .warning-row {
   background: rgba(122, 15, 15, 0.5);
+  height: 59px;
 }
 
 .el-table tr {
@@ -401,7 +400,6 @@ export default {
 .my-table {
   width: 100%;
   color: white;
-  background-color: rgba(23, 23, 21, 0.5);
   border-color: #00a5bb;
   border-style: solid;
   border-width: 1px;
@@ -435,5 +433,12 @@ export default {
     display: none;
     overflow: hidden;
   }
+}
+
+.show-border {
+  border: solid;
+  border-color: aqua;
+  border-width: 1px;
+  width: auto;
 }
 </style>

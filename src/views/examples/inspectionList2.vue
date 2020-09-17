@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div style="border: solid;border-color: aqua;">
+    <div style="border: solid;border-color: aqua;width:750px;">
       <transition-group
         name="flip-list"
         tag="ul"
@@ -323,7 +323,7 @@ li {
 }
 
 .ani-area {
-  /* width: 500px; */
+  width: 750px; 
   height: 140px;
   margin-top: 10px;
   position: relative;
@@ -345,6 +345,7 @@ li {
   animation-direction: normal;
   animation-play-state: running;
   position: absolute;
+  width: 750px;
 }
 
 @keyframes myfirst {
@@ -372,6 +373,7 @@ li {
   animation-direction: normal;
   animation-play-state: running;
   position: absolute;
+  width: 750px;
 }
 
 @keyframes myfirst2 {
